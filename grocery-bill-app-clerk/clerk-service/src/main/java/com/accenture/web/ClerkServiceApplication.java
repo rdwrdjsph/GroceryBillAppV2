@@ -34,14 +34,15 @@ public class ClerkServiceApplication {
 		List<Authority> authorityList = new ArrayList<>();
 		
 		authorityList.add(createAuthority("USER", "User Role"));
-		
+		authorityList.add(createAuthority("ADMIN", "Admin Role"));
+		authorityList.add(createAuthority("SADMIN", "Super Admin Role"));
 		
 		ShoppingClerk clerk = new ShoppingClerk();
 		
-		clerk.setUsername("user03");
-		clerk.setFirstName("EarlySeven");
-		clerk.setLastName("Strikeland");
-		clerk.setPassword(passwordEncoder.encode("user@123"));
+		clerk.setUsername("sadmin01");
+		clerk.setFirstName("Edward");
+		clerk.setLastName("Rodriguez");
+		clerk.setPassword(passwordEncoder.encode("sadmin@123"));
 		clerk.setEnabled(true);
 		clerk.setAuthorities(authorityList);
 		
