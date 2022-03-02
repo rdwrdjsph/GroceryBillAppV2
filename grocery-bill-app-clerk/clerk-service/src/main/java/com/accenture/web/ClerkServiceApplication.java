@@ -46,7 +46,7 @@ public class ClerkServiceApplication {
 		clerk.setEnabled(true);
 		clerk.setAuthorities(authorityList);
 		
-		shoppingClerkRepository.save(clerk);
+		//shoppingClerkRepository.save(clerk);
 	}
 	
 	private Authority createAuthority(String roleCode,String roleDescription) {
