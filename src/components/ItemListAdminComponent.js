@@ -49,7 +49,7 @@ class ItemListAdminComponent extends Component {
         return (
             <div>
                 <div>
-                <h2 className="text-center">Item List</h2>
+                <h2 className="text-center">ITEM LIST</h2>
                 <button className="btn btn-secondary" onClick={this.addItem}><MdAddShoppingCart/> Add Item</button>
                 </div><br/>
                 <div className="row table-responsive">

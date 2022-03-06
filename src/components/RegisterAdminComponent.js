@@ -3,6 +3,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
+import anonymous from "../images/anonymous.png";
 
 import AuthService from "../services/AuthService";
 
@@ -46,6 +47,16 @@ const vpassword = value => {
   }
 };
 
+const vnumber = value => {
+  if (value.length < 11 || value.length > 11) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The contact number must be 11 numbers.
+      </div>
+    );
+  }
+};
+
 export default class RegisterAdminComponent extends Component {
   constructor(props) {
     super(props);
@@ -53,11 +64,17 @@ export default class RegisterAdminComponent extends Component {
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangeFirstName = this.onChangeFirstName.bind(this);
+    this.onChangeLastName = this.onChangeLastName.bind(this);
+    this.onChangeContactNumber = this.onChangeContactNumber.bind(this);
 
     this.state = {
       username: "",
       email: "",
       password: "",
+      firstName: "",
+      lastName: "",
+      contactNumber: "",
       role: ["ADMIN"],
       successful: false,
       message: ""
@@ -82,6 +99,24 @@ export default class RegisterAdminComponent extends Component {
     });
   }
 
+  onChangeFirstName(e) {
+    this.setState({
+      firstName: e.target.value
+    });
+  }
+
+  onChangeLastName(e) {
+    this.setState({
+      lastName: e.target.value
+    });
+  }
+
+  onChangeContactNumber(e) {
+    this.setState({
+      contactNumber: e.target.value
+    });
+  }
+
   handleRegister(e) {
     e.preventDefault();
 
@@ -97,6 +132,9 @@ export default class RegisterAdminComponent extends Component {
         this.state.username,
         this.state.email,
         this.state.password,
+        this.state.firstName,
+        this.state.lastName,
+        this.state.contactNumber,
         this.state.role
       ).then(
         response => {
@@ -124,10 +162,11 @@ export default class RegisterAdminComponent extends Component {
 
   render() {
     return (
-      <div className="col-md-12">
+      <div className="col-md-12" style={{marginTop: "0px"}}>
         <div className="card card-container">
+        <h4 class="card-title text-center">ADD ADMIN</h4>
           <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            src={anonymous}
             alt="profile-img"
             className="profile-img-card"
           />
@@ -177,7 +216,51 @@ export default class RegisterAdminComponent extends Component {
                 </div>
 
                 <div className="form-group">
-                  <button className="btn btn-primary btn-block">Sign Up</button>
+                  <label htmlFor="firstName">First Name</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="firstName"
+                    value={this.state.firstName}
+                    onChange={this.onChangeFirstName}
+                    validations={[required]}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="lastName">Last Name</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="lastName"
+                    value={this.state.lastName}
+                    onChange={this.onChangeLastName}
+                    validations={[required]}
+                  />
+                </div>
+
+                <div className="form-group">
+                <label htmlFor="gender">Gender</label>
+                <select class="form-control">
+                      <option>Male</option>
+                      <option>Female</option>
+                </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="contactNumber">Contact Number</label>
+                  <Input
+                    type="number"
+                    className="form-control"
+                    name="contactNumber"
+                    value={this.state.contactNumber}
+                    onChange={this.onChangeContactNumber}
+                    validations={[required, vnumber]}
+                  />
+                </div>
+                <br/>
+                <div className="form-group">
+                  <button className="btn btn-primary btn-block"  style={{width: "268px"}}>Sign Up</button>
                 </div>
               </div>
             )}

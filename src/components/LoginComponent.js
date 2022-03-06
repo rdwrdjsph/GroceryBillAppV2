@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
+import anonymous from "../images/anonymous.png";
 
 import AuthService from "../services/AuthService";
 
@@ -56,7 +57,7 @@ class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.login(this.state.username, this.state.password).then(
         () => {
-          this.props.history.push("/items");
+          this.props.history.push("/list");
           window.location.reload();
         },
         error => {
@@ -82,10 +83,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="col-md-12">
+      <div className="col-md-12" style={{marginTop: "0px"}}>
         <div className="card card-container">
           <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            src={anonymous}
             alt="profile-img"
             className="profile-img-card"
           />
@@ -122,7 +123,8 @@ class Login extends Component {
             <br/>
             <div className="form-group">
               <button
-                className="btn btn-primary "
+                className="btn btn-primary"
+                style={{width: "268px"}}
                 disabled={this.state.loading}
               >
                 {this.state.loading && (
@@ -145,7 +147,7 @@ class Login extends Component {
                 this.checkBtn = c;
               }}
             />
-          </Form>
+          </Form>    
         </div>
       </div>
     );

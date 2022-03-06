@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 
 class HeaderLoginComponent extends Component {
     constructor(props) {
@@ -10,10 +9,10 @@ class HeaderLoginComponent extends Component {
     render() {
         return (
             <div>
-                <nav style={{paddingLeft: "25px"}}className="navbar navbar-expand navbar-dark bg-dark">
-                    <Link to={"/"} className="navbar-brand">
+                <nav style={{paddingLeft: "25px", backgroundColor: "#03256C"}} className="navbar navbar-expand navbar-dark">
+                    <div className="navbar-brand">
                         Grocery Bill Application
-                    </Link>
+                    </div>
                 </nav>
             </div>
         );

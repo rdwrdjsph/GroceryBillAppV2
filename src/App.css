@@ -34,3 +34,7 @@ label {
 * {
   font-family: 'Century Gothic';
 }
+
+.table-dark {
+  --bs-table-bg: #5B2A86 !important;
+}

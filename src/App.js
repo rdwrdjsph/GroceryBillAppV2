@@ -7,7 +7,7 @@ import "./App.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
-import Items from "./pages/Items";
+import List from "./pages/List";
 import BoardUser from "./components/BoardUserComponent";
 import BoardAdmin from "./components/BoardAdminComponent";
 import BoardSuperAdmin from "./components/BoardSuperAdminComponent";
@@ -23,7 +23,7 @@ function App() {
           <Switch>
             <Route exact path={["/", "/login"]} component={Login} />
             <Route path="/register" component={Register} />
-            <Route path="/items" component={Items} />
+            <Route path="/list" component={List} />
             <Route path="/profile" component={Profile} />
             <Route path="/user" component={BoardUser} />
             <Route path="/admin" component={BoardAdmin} />

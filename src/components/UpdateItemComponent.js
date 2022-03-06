@@ -110,13 +110,13 @@ class UpdateItemComponent extends Component {
         console.log('item => ' + JSON.stringify(item));
 
         ItemService.updateItem(item, this.state.itemId).then (res =>{
-            this.props.history.push("/items");
+            this.props.history.push("/list");
         });
     }
 
     cancel = (e) =>{
         e.preventDefault();
-        this.props.history.push("/items");
+        this.props.history.push("/list");
     }
 
     render() {

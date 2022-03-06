@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import ItemService from '../services/ItemService';
-import { BiEdit, BiTrash, BiCheckCircle, BiXCircle} from "react-icons/bi";
+import { BiCheckCircle, BiXCircle} from "react-icons/bi";
 import { RiFileList2Line } from "react-icons/ri";
+import { BsFillCartPlusFill } from "react-icons/bs";
 
 class ItemListAdminComponent extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class ItemListAdminComponent extends Component {
         return (
             <div>
                 <div>
-                <h2 className="text-center">Item List</h2>
+                <h2 className="text-center">ITEM LIST</h2>
                 <button className="btn btn-secondary" onClick={this.addItem}><RiFileList2Line /> Generate Bill</button>
                 </div><br/>
                 <div className="row table-responsive">
@@ -44,6 +45,7 @@ class ItemListAdminComponent extends Component {
                                 <th>Discounted Price</th>
                                 <th>Discounted?</th>
                                 <th>Discount %</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,6 +59,9 @@ class ItemListAdminComponent extends Component {
                                         <td>&#8369;{item.discountedPrice}</td>
                                         <td>{this.discountedChecker(item.isDiscounted)}</td>
                                         <td>{item.discountPercentage}%</td>
+                                        <td>
+                                            <button onClick="" className="btn btn-secondary"><BsFillCartPlusFill/></button>
+                                        </td>
                                     </tr>
                                 )
                             }

@@ -74,13 +74,13 @@ class AddItemComponent extends Component {
         console.log('item => ' + JSON.stringify(item));
 
         ItemService.addItem(item).then (res =>{
-            this.props.history.push("/items");
+            this.props.history.push("/list");
         });
     }
 
     cancel = (e) =>{
         e.preventDefault();
-        this.props.history.push("/items");
+        this.props.history.push("/list");
     }
 
     render() {

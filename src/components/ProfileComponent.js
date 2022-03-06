@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "../services/AuthService";
-import ItemListAdminComponent from './ItemListAdminComponent';
-import ItemListUserComponent from './ItemListUserComponent';
+import avatarm from "../images/avatarm.png"
+import avatarw from "../images/avatarw.png"
 
 export default class ProfileComponent extends Component {
     constructor(props) {
@@ -14,30 +14,27 @@ export default class ProfileComponent extends Component {
         const { currentUser } = this.state;
         return (
             <div>
-                <header className="jumbotron">
-                    <h3>
-                        <strong>{currentUser.username}</strong> Profile
-                    </h3>
-                </header>
-                <p>
-                    <strong>Token:</strong>{" "}
-                    {currentUser.token.substring(0, 20)} ...{" "}
-                    {currentUser.token.substr(currentUser.token.length - 20)}
-                </p>
-                <p>
-                    <strong>Id:</strong>{" "}
-                    {currentUser.id}
-                </p>
-                <p>
-                    <strong>Email:</strong>{" "}
-                    {currentUser.email}
-                </p>
-                <strong>Authorities:</strong>
-                <ul>
-                    {currentUser.roles &&
-                        currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-                </ul>
+                <div style={{marginTop: "0px"}} className="col-md-12 text-center">
+                        <div className="card card-container">
+                            <h4 class="card-title"><strong>Clerk Profile</strong></h4>
+                            <br/>
+                            { currentUser.gender == "Male" ?
+                            <img src={avatarm} alt="profile-img" className="profile-img-card"/> : "" }
+                            { currentUser.gender == "Female" ?
+                            <img src={avatarw} alt="profile-img" className="profile-img-card"/> : "" }
+                            <p class="card-text"><strong>ID:</strong> {currentUser.id}</p>
+                            <p class="card-text"><strong>Username:</strong> {currentUser.username}</p>
+                            <p class="card-text"><strong>Email:</strong> {currentUser.email}</p>
+                            <p class="card-text"><strong>Name:</strong> {currentUser.firstName} {currentUser.lastName}</p>
+                            <p class="card-text"><strong>Gender :</strong> {currentUser.gender}</p>
+                            <p class="card-text"><strong>Contact Number:</strong> {currentUser.contactNumber}</p>
+                            <p class="card-text"><strong>Role:</strong> { currentUser.roles == "ROLE_USER" ? "USER" : ""}
+                                                                        { currentUser.roles == "ROLE_ADMIN" ? "ADMIN" : ""}
+                                                                        { currentUser.roles == "ROLE_SUPER_ADMIN" ? "SUPER ADMIN" : ""} </p>
+                        </div>
+                </div>
             </div>
+
         );
     }
 }
