@@ -66,6 +66,7 @@ export default class RegisterUserComponent extends Component {
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
+    this.onChangeGender = this.onChangeGender.bind(this);
     this.onChangeContactNumber = this.onChangeContactNumber.bind(this);
 
     this.state = {
@@ -74,7 +75,9 @@ export default class RegisterUserComponent extends Component {
       password: "",
       firstName: "",
       lastName: "",
+      gender: "Male",
       contactNumber: "",
+      role: "",
       successful: false,
       message: ""
     };
@@ -116,6 +119,13 @@ export default class RegisterUserComponent extends Component {
     });
   }
 
+  onChangeGender(e) {
+    this.setState({
+      gender: e.target.value
+    });
+  }
+
+
   handleRegister(e) {
     e.preventDefault();
 
@@ -133,7 +143,9 @@ export default class RegisterUserComponent extends Component {
         this.state.password,
         this.state.firstName,
         this.state.lastName,
-        this.state.contactNumber
+        this.state.gender,
+        this.state.contactNumber,
+        this.role
       ).then(
         response => {
           this.setState({
@@ -161,8 +173,8 @@ export default class RegisterUserComponent extends Component {
   render() {
     return (
       <div className="col-md-12" style={{marginTop: "0px"}}>
-        <div className="card card-container">
-        <h4 class="card-title text-center">ADD USER</h4>
+        <div style={{marginTop: "15px"}} className="card card-container">
+        <h4 className="card-title text-center">ADD USER</h4>
           <img
             src={anonymous}
             alt="profile-img"
@@ -239,9 +251,9 @@ export default class RegisterUserComponent extends Component {
 
                 <div className="form-group">
                 <label htmlFor="gender">Gender</label>
-                <select class="form-control">
-                      <option>Male</option>
-                      <option>Female</option>
+                <select className="form-select" name="gender" value={this.state.gender} onChange={this.onChangeGender} validations={[required]}>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
                 </select>
                 </div>
 
@@ -265,7 +277,7 @@ export default class RegisterUserComponent extends Component {
 
             {this.state.message && (
               <div className="form-group">
-                <div
+                <div style={{textAlign: "center"}}
                   className={
                     this.state.successful
                       ? "alert alert-success"

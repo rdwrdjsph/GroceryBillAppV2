@@ -15,8 +15,8 @@ export default class ProfileComponent extends Component {
         return (
             <div>
                 <div style={{marginTop: "0px"}} className="col-md-12 text-center">
-                        <div className="card card-container">
-                            <h4 class="card-title"><strong>Clerk Profile</strong></h4>
+                        <div style={{marginTop: "15px"}} className="card card-container">
+                            <h4 className="card-title"><strong>Clerk Profile</strong></h4>
                             <br/>
                             { currentUser.gender == "Male" ?
                             <img src={avatarm} alt="profile-img" className="profile-img-card"/> : "" }

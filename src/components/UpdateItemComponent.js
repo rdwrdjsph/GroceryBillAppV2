@@ -124,7 +124,7 @@ class UpdateItemComponent extends Component {
             <div>
               <div className="container">
                   <div className="row">
-                      <div className="card col-md-6 offset-md-3 offset-md-3">
+                      <div style={{marginTop: "35px"}} className="card col-md-6 offset-md-3 offset-md-3">
                           <br/>
                           <h3 className="text-center">Update Item</h3>
                           <div className="card-body">
@@ -139,8 +139,8 @@ class UpdateItemComponent extends Component {
                                       <input type="number" placeholder="Price" name="price" className="form-control" 
                                       value={this.state.price} onChange={this.changePriceHandler}/>
                                   </div><br/>
-                                  <div className="form-check">
-                                     <label className="form-check-label" htmlFor="flexCheckDefault">
+                                  <div className="form-group">
+                                     <label className="form-check-label" htmlFor="discounted">
                                         Discounted?
                                      </label>
                                     <input className="form-check-input" name="discounted" type="checkbox" value="true"

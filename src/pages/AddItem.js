@@ -7,7 +7,6 @@ class AddItem extends Component {
         return (
             <div>
                 <HeaderComponent />
-                <br />
                 <div className="container">
                     <AddItemComponent />
                 </div>

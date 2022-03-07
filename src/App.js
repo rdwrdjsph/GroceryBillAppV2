@@ -13,6 +13,7 @@ import BoardAdmin from "./components/BoardAdminComponent";
 import BoardSuperAdmin from "./components/BoardSuperAdminComponent";
 import AddItem from "./pages/AddItem";
 import UpdateItem from "./pages/UpdateItem";
+import Receipt from "./pages/Receipt";
 
 // import AuthVerify from "./common/auth-verify";
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/sadmin" component={BoardSuperAdmin} />
             <Route path="/add-item" component={AddItem} />
             <Route path="/update-item/:id" component={UpdateItem} />
+            <Route path="/receipt" component={Receipt} />
           </Switch>
         </div>
 

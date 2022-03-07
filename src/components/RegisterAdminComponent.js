@@ -66,6 +66,7 @@ export default class RegisterAdminComponent extends Component {
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
+    this.onChangeGender = this.onChangeGender.bind(this);
     this.onChangeContactNumber = this.onChangeContactNumber.bind(this);
 
     this.state = {
@@ -75,6 +76,7 @@ export default class RegisterAdminComponent extends Component {
       firstName: "",
       lastName: "",
       contactNumber: "",
+      gender: "Male",
       role: ["ADMIN"],
       successful: false,
       message: ""
@@ -117,6 +119,12 @@ export default class RegisterAdminComponent extends Component {
     });
   }
 
+  onChangeGender(e) {
+    this.setState({
+      gender: e.target.value
+    });
+  }
+
   handleRegister(e) {
     e.preventDefault();
 
@@ -134,6 +142,7 @@ export default class RegisterAdminComponent extends Component {
         this.state.password,
         this.state.firstName,
         this.state.lastName,
+        this.state.gender,
         this.state.contactNumber,
         this.state.role
       ).then(
@@ -163,8 +172,8 @@ export default class RegisterAdminComponent extends Component {
   render() {
     return (
       <div className="col-md-12" style={{marginTop: "0px"}}>
-        <div className="card card-container">
-        <h4 class="card-title text-center">ADD ADMIN</h4>
+        <div style={{marginTop: "15px"}} className="card card-container">
+        <h4 className="card-title text-center">ADD ADMIN</h4>
           <img
             src={anonymous}
             alt="profile-img"
@@ -241,9 +250,9 @@ export default class RegisterAdminComponent extends Component {
 
                 <div className="form-group">
                 <label htmlFor="gender">Gender</label>
-                <select class="form-control">
-                      <option>Male</option>
-                      <option>Female</option>
+                <select className="form-select" name="gender" value={this.state.gender} onChange={this.onChangeGender} validations={[required]}>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
                 </select>
                 </div>
 
@@ -266,8 +275,8 @@ export default class RegisterAdminComponent extends Component {
             )}
 
             {this.state.message && (
-              <div className="form-group">
-                <div
+              <div className="form-group text-center">
+                <div style={{textAlign: "center"}}
                   className={
                     this.state.successful
                       ? "alert alert-success"

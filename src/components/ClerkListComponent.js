@@ -43,6 +43,7 @@ class ClerkListComponent extends Component {
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Name</th>
+                                <th>Gender</th>
                                 <th>Contact Number</th>
                                 <th>Role</th>
                             </tr>
@@ -56,6 +57,7 @@ class ClerkListComponent extends Component {
                                         <td>{clerk.username}</td>
                                         <td>{clerk.email}</td>
                                         <td>{clerk.firstName} {clerk.lastName}</td>
+                                        <td>{clerk.gender}</td>
                                         <td>{clerk.contactNumber}</td>
                                         <td>{this.roleChecker(JSON.stringify(clerk.roles))}</td>
                                     </tr>

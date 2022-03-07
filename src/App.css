@@ -38,3 +38,48 @@ label {
 .table-dark {
   --bs-table-bg: #5B2A86 !important;
 }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-1 {
+  flex: 1;
+}
+
+.col-2 {
+  flex: 2;
+}
+
+.col-3 {
+  width: 28% !important;
+}
+
+.block {
+  background-color: #f8f9fb;
+  padding: 1rem;
+  margin: 0.5rem;
+  margin-top: 0rem;
+  border: 1px solid #dfe0e1;
+}
+
+.row-center {
+  align-items: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+button.add, button.remove {
+  background-color: #6c757e;
+  width: 1.5rem;
+  font-size: 0.8rem;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #404040 solid;
+  cursor: pointer;
+  color: white ;
+}
