@@ -22,13 +22,13 @@ export default class ProfileComponent extends Component {
                             <img src={avatarm} alt="profile-img" className="profile-img-card"/> : "" }
                             { currentUser.gender == "Female" ?
                             <img src={avatarw} alt="profile-img" className="profile-img-card"/> : "" }
-                            <p class="card-text"><strong>ID:</strong> {currentUser.id}</p>
-                            <p class="card-text"><strong>Username:</strong> {currentUser.username}</p>
-                            <p class="card-text"><strong>Email:</strong> {currentUser.email}</p>
-                            <p class="card-text"><strong>Name:</strong> {currentUser.firstName} {currentUser.lastName}</p>
-                            <p class="card-text"><strong>Gender :</strong> {currentUser.gender}</p>
-                            <p class="card-text"><strong>Contact Number:</strong> {currentUser.contactNumber}</p>
-                            <p class="card-text"><strong>Role:</strong> { currentUser.roles == "ROLE_USER" ? "USER" : ""}
+                            <p className="card-text"><strong>ID:</strong> {currentUser.id}</p>
+                            <p className="card-text"><strong>Username:</strong> {currentUser.username}</p>
+                            <p className="card-text"><strong>Email:</strong> {currentUser.email}</p>
+                            <p className="card-text"><strong>Name:</strong> {currentUser.firstName} {currentUser.lastName}</p>
+                            <p className="card-text"><strong>Gender :</strong> {currentUser.gender}</p>
+                            <p className="card-text"><strong>Contact Number:</strong> {currentUser.contactNumber}</p>
+                            <p className="card-text"><strong>Role:</strong> { currentUser.roles == "ROLE_USER" ? "USER" : ""}
                                                                         { currentUser.roles == "ROLE_ADMIN" ? "ADMIN" : ""}
                                                                         { currentUser.roles == "ROLE_SUPER_ADMIN" ? "SUPER ADMIN" : ""} </p>
                         </div>

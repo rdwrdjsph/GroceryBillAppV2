@@ -8,12 +8,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import List from "./pages/List";
-import BoardUser from "./components/BoardUserComponent";
-import BoardAdmin from "./components/BoardAdminComponent";
-import BoardSuperAdmin from "./components/BoardSuperAdminComponent";
 import AddItem from "./pages/AddItem";
 import UpdateItem from "./pages/UpdateItem";
-import Receipt from "./pages/Receipt";
+import Bills from "./pages/Bills";
 
 // import AuthVerify from "./common/auth-verify";
 
@@ -26,12 +23,9 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/list" component={List} />
             <Route path="/profile" component={Profile} />
-            <Route path="/user" component={BoardUser} />
-            <Route path="/admin" component={BoardAdmin} />
-            <Route path="/sadmin" component={BoardSuperAdmin} />
             <Route path="/add-item" component={AddItem} />
             <Route path="/update-item/:id" component={UpdateItem} />
-            <Route path="/receipt" component={Receipt} />
+            <Route path="/bills" component={Bills} />
           </Switch>
         </div>
 

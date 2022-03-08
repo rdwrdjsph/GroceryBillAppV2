@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { AiOutlineUserAdd, AiOutlineInfoCircle, AiOutlineUnorderedList, AiOutlineLogout } from "react-icons/ai";
+import { IoReceiptOutline } from "react-icons/io5";
 
 import EventBus from "../common/EventBus";
 import AuthService from "../services/AuthService";
@@ -59,23 +60,28 @@ class HeaderComponent extends Component {
                     <div className="navbar-nav ms-auto">
                         {showAdminBoard && (
                             <li className="nav-item">
-                                <Link to={"/register"} className="nav-link" style={{color: "white"}}>
+                                <Link to={"/register"} className="nav-link" style={{ color: "white" }}>
                                     <span><AiOutlineUserAdd /></span>
                                 </Link>
                             </li>
                         )}
 
                         {showSuperAdminBoard && (
-                            <li className="nav-item">
-                                <Link to={"/register"} className="nav-link" style={{color: "white"}}>
+                            <><li className="nav-item">
+                                <Link to={"/register"} className="nav-link" style={{ color: "white" }}>
                                     <span><AiOutlineUserAdd /></span>
                                 </Link>
-                            </li>
+                            </li><li className="nav-item">
+                                    <Link to={"/bills"} className="nav-link" style={{ color: "white" }}>
+                                        <span><IoReceiptOutline /></span>
+                                    </Link>
+                                </li></>
+
                         )}
 
                         {currentUser && (
                             <li className="nav-item">
-                                <Link to={"/list"} className="nav-link" style={{color: "white"}}>
+                                <Link to={"/list"} className="nav-link" style={{ color: "white" }}>
                                     <span><AiOutlineUnorderedList /></span>
                                 </Link>
                             </li>
@@ -85,12 +91,12 @@ class HeaderComponent extends Component {
                     {currentUser ? (
                         <div className="navbar-nav ">
                             <li className="nav-item">
-                                <Link to={"/profile"} className="nav-link" style={{color: "white"}}>
+                                <Link to={"/profile"} className="nav-link" style={{ color: "white" }}>
                                     <span><AiOutlineInfoCircle /></span>
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <a href="/login" className="nav-link" onClick={this.logOut} style={{color: "white"}}>
+                                <a href="/login" className="nav-link" onClick={this.logOut} style={{ color: "white" }}>
                                     <span><AiOutlineLogout /></span>
                                 </a>
                             </li>

@@ -7,22 +7,22 @@ class ClerkListComponent extends Component {
         super(props)
 
         this.state = {
-            clerks : []
+            clerks: []
         }
     }
 
     componentDidMount() {
         UserService.getAllClerk().then((res) => {
-            this.setState({ clerks: res.data});
+            this.setState({ clerks: res.data });
         });
     }
 
     roleChecker(role) {
-        if(role == '[{"id":3,"name":"ROLE_USER"}]') {
+        if (role == '[{"id":3,"name":"ROLE_USER"}]') {
             return "USER";
-        } else if(role == '[{"id":2,"name":"ROLE_ADMIN"}]') {
+        } else if (role == '[{"id":2,"name":"ROLE_ADMIN"}]') {
             return "ADMIN";
-        } else if(role == '[{"id":1,"name":"ROLE_SUPER_ADMIN"}]') {
+        } else if (role == '[{"id":1,"name":"ROLE_SUPER_ADMIN"}]') {
             return "SUPER ADMIN";
         } else {
             return "ROLE NOT FOUND";
@@ -33,8 +33,8 @@ class ClerkListComponent extends Component {
         return (
             <div>
                 <div>
-                <h2 className="text-center">CLERK LIST</h2>
-                </div><br/>
+                    <h2 className="text-center">CLERK LIST</h2>
+                </div><br />
                 <div className="row table-responsive">
                     <table className="table table-hover text-center table-light">
                         <thead className="table-dark">
@@ -52,15 +52,15 @@ class ClerkListComponent extends Component {
                             {
                                 this.state.clerks.map(
                                     clerk =>
-                                    <tr key = {clerk.id}>
-                                        <td>{clerk.id}</td>
-                                        <td>{clerk.username}</td>
-                                        <td>{clerk.email}</td>
-                                        <td>{clerk.firstName} {clerk.lastName}</td>
-                                        <td>{clerk.gender}</td>
-                                        <td>{clerk.contactNumber}</td>
-                                        <td>{this.roleChecker(JSON.stringify(clerk.roles))}</td>
-                                    </tr>
+                                        <tr key={clerk.id}>
+                                            <td>{clerk.id}</td>
+                                            <td>{clerk.username}</td>
+                                            <td>{clerk.email}</td>
+                                            <td>{clerk.firstName} {clerk.lastName}</td>
+                                            <td>{clerk.gender}</td>
+                                            <td>{clerk.contactNumber}</td>
+                                            <td>{this.roleChecker(JSON.stringify(clerk.roles))}</td>
+                                        </tr>
                                 )
                             }
                         </tbody>

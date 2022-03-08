@@ -104,6 +104,7 @@ class ItemListAdminComponent extends Component {
                         </tbody>
                     </table>
                     <CartComponent onAdd={this.onAdd} onRemove={this.onRemove} cartItems={this.state.cartItems} />
+                    
                 </div>
             </div>
         );
