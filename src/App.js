@@ -9,7 +9,6 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import List from "./pages/List";
 import AddItem from "./pages/AddItem";
-import UpdateItem from "./pages/UpdateItem";
 import Bills from "./pages/Bills";
 
 // import AuthVerify from "./common/auth-verify";
@@ -24,7 +23,6 @@ function App() {
             <Route path="/list" component={List} />
             <Route path="/profile" component={Profile} />
             <Route path="/add-item" component={AddItem} />
-            <Route path="/update-item/:id" component={UpdateItem} />
             <Route path="/bills" component={Bills} />
           </Switch>
         </div>
