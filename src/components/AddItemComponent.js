@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ItemService from '../services/ItemService';
 import { withRouter } from 'react-router-dom';
 
+import AuthService from "../services/AuthService";
+
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -29,7 +31,7 @@ class AddItemComponent extends Component {
             inputType: "hidden",
             labelType: "hidden",
             message: "",
-            successful: false
+            successful: false,
         }
 
         this.changeNameHandler = this.changeNameHandler.bind(this);

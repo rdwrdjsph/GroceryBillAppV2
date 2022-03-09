@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import ItemService from '../services/ItemService';
-import { BiEdit, BiTrash, BiCheckCircle, BiXCircle } from "react-icons/bi";
+import { BiEdit, BiTrash } from "react-icons/bi";
+import { BsCheckSquare, BsXSquare } from "react-icons/bs";
 import { MdAddShoppingCart } from "react-icons/md";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -74,9 +75,9 @@ class ItemListAdminComponent extends Component {
 
     discountedChecker(item) {
         if (item == true) {
-            return <BiCheckCircle />
+            return <BsCheckSquare />
         } else {
-            return <BiXCircle />
+            return <BsXSquare />
         }
     }
 
